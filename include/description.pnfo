@@ -2,7 +2,7 @@
 
 -1 * 0 14
     "C" "INFO"
-        "B" "VRSN" \w4 \d{{REPO_REVISION}}
+        "B" "VRSN" \w4 \d66
         "B" "MINV" \w4 \d24
         "B" "PALS" \w1 "W"
         "B" "NPAR" \w1 \b4

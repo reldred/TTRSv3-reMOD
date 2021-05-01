@@ -1,43 +1,85 @@
-# Generic NewGRF Makefile
+# reldreds garbage nfo compile system
+# Written by reldred, the artist formerly known as Aegir. Major kudos to Josef 'Patchman' Drexler for the 
+# suggestion to abuse the hell out of gcc preprocess and then make nforenum wipe our arses for us.
 
-# Name of the Makefile which contains all the settings which describe
-# how to make this newgrf. It defines all the paths, the grf name,
-# the files for a bundle etc.
-MAKEFILE=Makefile
-MAKEFILE_DEP=Makefile.dep
+# Have fun.
 
-# Include the project's configuration file
-include Makefile.config
+# Our Steps:
+# 1: gcc -ECP preprocess
+# 2: nforenum process
+# 3: grfcodec compile
 
-# this overrides definitions from above by individual settings
-# (if applicable):
--include Makefile.dist
--include Makefile.local
+# Macros:
+# Paths for our tools
+GRFCODEC = grfcodec
+NFORENUM = nforenum -b +
+GRFDIR = ../../../../../REHI-GREEN/Software/Games/JGR\ Patchpack/newgrf/
 
-# include the universal Makefile definitions for NewGRF Projects
-include scripts/Makefile.def
+# GCC Settings:
+CC = gcc
+PREPROCESS = -nostdinc -E -C -P - <
 
-# Check dependencies for building all:
-all: $(TARGET_FILES) $(DOC_FILES)
+# Aliases for the set:
+NAME = ttrs3wmod
+
+# Now, the fun stuff:
+
+# Target for all:
+all : compile
+
+justdoit : clean compile install
+
+# Compile GRF's
+#don't need graphics anymore since grfcodec can eat pngs
+#compile : process graphics
+compile : process
+#	@echo "Compiling Windows GRF:"
+#	$(GRFCODEC) $(NAME)w.nfo .
+#	@echo
+	@echo "Compiling OpenTTD/DOS GRF:"
+	$(GRFCODEC) -e -g 2 $(NAME).nfo .
+	@echo
 	
-# Rules used by all projects
-include scripts/Makefile.common
+# NFORENUM process the Windows copy of the NFO
+process : preprocess
+	@echo "NFORENUM Processing:"
+	-$(NFORENUM) $(NAME).nfo
+#	-cp $(NAME).nfo $(NAME)w.nfo
+	@echo
+	
+# GCC Preprocess the HNFO	
+preprocess :
+	@echo "GCC Preprocessing HNFO:"
+	$(CC) $(PREPROCESS) $(NAME).pnfo > $(NAME).nfo
+	@echo
 
-# Include the project type specific Makefiles. They take care of
-# their conditional inclusion themselves
--include scripts/Makefile_nfo # nfo-style projects
--include scripts/Makefile_nml # nml-style projects
--include scripts/Makefile_obg # additionally for graphic base sets
--include scripts/Makefile_obs # sound base sets
+# so grfcodec can handle pngs now... 
+#oh what wonders the new decade has wrought
+#graphics :
+#	@echo "Converting .png files to .pcx:"
+#	$(MAKE) -C art/
+#	@echo
 
-# Include repo-specific rules (if applicable)
--include Makefile.in
--include scripts/Makefile.in
+# Clean the source tree
+clean:
+	@echo "Cleaning source tree:"
+	@echo "Remove backups:"
+	-rm *.bak *~
+#	@echo
+#	@echo "Remove .pcx:"
+#	-rm art/*.pcx
+	@echo
+	@echo "Remove .nfo:"
+	-rm *.nfo
+	@echo
+	@echo "Remove compiled .grf:"
+	-rm *.grf
 
-# Include rules for bundle generation
-include scripts/Makefile.bundles
-
-# Include dependencies (if applicable)
--include Makefile.dep
--include $(patsubst %.grf,%.src.dep,$(GRF_FILES))
--include $(patsubst %.grf,%.gfx.dep,$(GRF_FILES))
+# Installation process
+install:
+	@echo Installing .grf files to $(GRFDIR).
+#	@echo "Windows GRF:"
+#	-cp $(NAME)w.grf $(GRFDIR)/$(NAME)w.grf
+#	@echo
+	@echo "DOS/OpenTTD GRF:"
+	-cp $(NAME).grf $(GRFDIR)/$(NAME).grf
