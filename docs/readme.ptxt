@@ -1,0 +1,181 @@
+{{GRF_TITLE}}
+-----------------------------------
+
+Contents:
+
+1 About
+2 Installation and Usage
+3 License and credits
+
+
+-------
+1 About
+-------
+
+Total Town Replacement Set v3 (TTRSv3 for short) is a building set for
+TTDPatch and OpenTTD, for the temperate, arctic and tropic climates. It
+contains over 100 town buildings to break the monotony you get with
+default TTD town buildings. The buildings are separated into four
+"eras", 1920-1950, 1950-1980, 1980-2010 and 2010-forever. This means
+your towns will nicely evolve from old-style buildings towards modern
+buildings as time passes in the game.
+
+The set comes with some extras as well. The small airport, big airport
+and heliport graphics are replaced to make them fit to the buildings.
+There are two bank versions that replace the original bank and have
+different looks in the different eras. You also get two new road
+graphics, one used before 1970, and one used after that year. Town
+bridge graphics are also replaced. Everything except the bank can be
+turned off in case you want to use different graphics for these things,
+or simply prefer the original TTD ones.
+
+The set is compatible with the Extended Cargo Scheme project, thanks to
+George. When petrol is available in your game, towns will start building
+petrol stations that accept it. Similarly, when the "tourist" cargo is
+available, some of the buildings will start accepting and producing
+tourists. This set is, however, also fully functional without using ECS.
+
+Name of this Repo:  {{GRF_TITLE}}
+Repository version: {{REPO_REVISION}}
+GRF_ID:             {{GRF_ID}}
+MD5 sum:            {{GRF_MD5}}
+
+
+
+------------------------
+2 Installation and Usage
+------------------------
+
+ttFirst, copy "ttrs3w.grf" to the "newgrf" directory inside your TTD
+directory. Then open "newgrf.cfg" and add the following line:
+
+newgrf/ttrs3w.grf
+
+Optionally, you can add up to four numbers (parameters) to the end of
+the line.
+
+These parameters have the following meaning:
+
+ 1st
+ 	0 - Use the new building types only, default TTD buildings are
+        disabled
+	1 - New house types are added without modifying the old types,
+	    so towns will have both original TTD and new buildings.
+	    (default)
+
+ 2nd
+ 	0 - time sequence is followed (default)
+	1 - Force the 1920-1950 era. This means that the graphics for this
+	    era are used no matter what year it actually is in the game.
+	2 - Force the 1950-1980 era.
+	3 - Force the 1980-2010 era.
+	4 - Force the 2010-forever era.
+	5 - Mix all eras. This means buildings from all eras can appear no
+	    matter what year it is in the game.
+
+ 3rd
+ 	0 - Don't use TTRS-v3 townroads and bridges
+	1 - Use TTRS-v3 townroads and default TTD road bridges
+	2 - Use TTRS-v3 townroads and replace road bridge graphics (default)
+
+ 4th
+ 	0 - Use TTRS-v3 airports. (default for TTDPatch)
+	1 - do not use TTRS-v3 airports (default for OpenTTD)
+
+If you don't set these parameters in your newgrf[w].cfg file, the
+default settings will be used.
+
+If you're using the road bridge replacements (enabled by default), it is
+recommended to use the girder steel bridge (the one whose icon is a grey
+arch) in towns, since its graphics look the best inside towns.
+
+There is a small problem with the roads because of a limitation of
+TTDPatch: the roads can't change automatically in 1970. To work around
+this, you can do two things when you reach 1970 in your game:
+	a) open the GRF Settings window and press Apply without changing
+       anything;
+	b) save the game and load it back.
+Any of these two will make the new roads appear.
+
+The new heliport graphics have the same limitation. They should change
+in 1980 and 2010, but this won't actually happen unless you do one of
+the above two points.
+
+
+2.1 Incompatible sets
+---------------------
+
+This set isn't compatible with older versions of TTRS. There are just
+too many changes to make it compatible, so you're better off starting
+a new game with the new version. You can activate the set in existing
+games as well, of course, but it will take some time for the new
+buildings to appear as towns gradually replace their existing buildings.
+
+Similarly, you can't use George's "TTRS3 alpha" set with this set. All
+buildings of that set is included in this set, so this shouldn't be a
+problem.
+
+When TTRS3 detects one of these sets below itself in the newgrfw.cfg
+file, it will deactivate them and notify you with a warning. If,
+however, this set is below those two, it will deactivate itself instead,
+and show an error about the incompatibility. If you disable those sets
+manually, everything will work fine.
+
+2.2 Known problems
+------------------
+
+Messed-up buildins (existing games in TTDPatch 2.5 beta 9 only)
+TTDPatch 2.5 beta 9 has a bug that messes up all your buildings when you
+enable a building set in an existing game, and this affects TTRS3 too.
+Until the next beta comes out, you can either use TTRS3 in new games only,
+or use 2.6 alpha.
+
+Messed-up bridge graphics (TTDPatch 2.5 beta 9 and earlier)
+In 2.5 beta 9 and earlier, there is a problem that messes up the bridge
+graphics when you open the GRF Settings window, make some changes and
+then DON'T press Apply but close the window. To work around this, just
+open the window again and press Apply without changing anything.
+
+Snowy buidlings
+The buildings in this set are fully snow-aware since v3.02. This means
+they can change their graphics dynamically when the snow line height
+changes. Original arctic TTD buildings can't do this, though. Therefore,
+if you plan to use variable snow line height GRFs, it's best to disable
+all original buildings by setting parameter 1 to 0.
+
+Limitations in TTDPatch 2.5 or earlier
+The set uses some features that are available in 2.6 alphas only. It
+will work correctly in 2.5 versions as well, but these features won't
+be available. The differences will be very small.  For example, the last
+remaining old water tower will be protected from destruction and becomes
+a historical building if you use 2.6, but this is impossible in 2.5.
+
+
+
+---------------------
+3 License and credits
+---------------------
+
+The source code can be obtained from the #openttdcoop DevZone at
+http://dev.openttdcoop.org/projects/ttrs or via mercurial checkout
+hg clone http://hg.openttdcoop.org/ttrs
+
+If you enjoy TTRS-v3, think of the artists and coder who made that
+possible. The set was drawn by Zimmlock (most of the graphics), George,
+the Tycoonez.com:munity, Oz, Red*Star, Purno and Pikkabird, and was coded
+by Csaboka and updated by planetmaker and FooBar. TTRS-v3 has been made
+for the Transport Tycoon fans; you are free to use it at your disposal,
+as long as you give the right credits. That includes modifications and
+enhangements to individual drawings and code slices  (see license.txt
+for the legal words).
+
+Translations by:
+Dutch:       FooBar
+German:      planetmaker
+Norwegian:   DJNekkid
+Polish:      voythas
+Spanish:     Terkhen
+Swedish:     AndersI
+
+Enjoy, Best Regards
+the TTRS-v3 team.

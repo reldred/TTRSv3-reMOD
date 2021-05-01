@@ -1,0 +1,353 @@
+//BANKS
+//if temperate, check if VALU available and disable industry-banks if not
+-1 * 0 07 //Action 7
+	83 01 //Current climate, 1 byte
+	\7! 00 //not equal to 00 (temperate)
+	01 //skip
+
+-1 * 0 07 //Action 7
+	9A 04 //Don't care about variable for cargo-checks, but use 4 bytes
+	\7C "VALU" //cargo is available
+	FE //label
+
+//if arctic, check if GOLD available and disable industry-banks if not
+-1 * 0 07 //Action 7
+	83 01 //Current climate, 1 byte
+	\7! 01 //not equal to 01 (arctic)
+	01 //skip
+
+-1 * 0 07 //Action 7
+	9A 04 //Don't care about variable for cargo-checks, but use 4 bytes
+	\7C "GOLD" //cargo is available
+	FE //label
+
+//if tropic, check if DIAM available and disable industry-banks if not
+-1 * 0 07 //Action 7
+	83 01 //Current climate, 1 byte
+	\7! 02 //not equal to 02 (tropic)
+	01 //skip
+
+-1 * 0 07 //Action 7
+	9A 04 //Don't care about variable for cargo-checks, but use 4 bytes
+	\7C "DIAM" //cargo is available
+	FE //label
+
+//in toyland, we always get house banks (if TTRS is allowed in toyland)
+
+//If we got to this point, skip industry-banks definition unconditionally and use house-banks instead
+-1 * 0 07 //Action 7
+	9A 01 //all bits set, 1 byte
+	\71 00 //bit 00 set
+	FF //label
+	
+//start industy-banks
+-1 * 0 10 FE //label
+
+//industry-bank graphics
+ 4225 * 6	 01 09 60 FF 01 00
+ 4226 sprites/pcx/ttrs3w.pcx 514 20488 01 31 64 -31 0
+ 4227 sprites/pcx/ttrs3w.pcx 594 20488 01 67 60 -29 -37
+ 4228 sprites/pcx/ttrs3w.pcx 674 20488 01 31 64 -31 0
+ 4229 sprites/pcx/ttrs3w.pcx 2 20568 01 66 58 -29 -36
+ 4230 sprites/pcx/ttrs3w.pcx 66 20568 01 31 64 -31 0
+ 4231 sprites/pcx/ttrs3w.pcx 146 20568 01 43 49 -10 -8
+ 4232 sprites/pcx/ttrs3w.pcx 210 20568 01 31 64 -31 0
+ 4233 sprites/pcx/ttrs3w.pcx 290 20568 01 44 62 -30 -13
+ 4234 sprites/pcx/ttrs3w.pcx 370 20568 01 31 64 -31 0
+ 4235 sprites/pcx/ttrs3w.pcx 450 20568 01 75 40 -9 -46
+ 4236 sprites/pcx/ttrs3w.pcx 498 20568 01 31 64 -31 0
+ 4237 sprites/pcx/ttrs3w.pcx 578 20568 01 69 57 -25 -41
+ 4238 sprites/pcx/ttrs3w.pcx 642 20568 01 31 64 -31 0
+ 4239 sprites/pcx/ttrs3w.pcx 722 20568 01 49 55 -29 -22
+ 4240 sprites/pcx/ttrs3w.pcx 2 20664 01 31 64 -31 0
+ 4241 sprites/pcx/ttrs3w.pcx 82 20664 01 61 49 -24 -36
+ 4242 sprites/pcx/ttrs3w.pcx 146 20664 01 31 64 -31 0
+ 4243 sprites/pcx/ttrs3w.pcx 226 20664 01 31 64 -31 0
+ 4244 sprites/pcx/ttrs3w.pcx 306 20664 01 31 64 -31 0
+ 4245 sprites/pcx/ttrs3w.pcx 386 20664 01 57 62 -29 -26
+ 4246 sprites/pcx/ttrs3w.pcx 466 20664 01 66 62 -29 -35
+ 4247 sprites/pcx/ttrs3w.pcx 546 20664 01 76 62 -29 -45
+ 4248 sprites/pcx/ttrs3w.pcx 626 20664 01 84 55 -29 -53
+ 4249 sprites/pcx/ttrs3w.pcx 690 20664 01 31 64 -31 0
+ 4250 sprites/pcx/ttrs3w.pcx 2 20760 01 31 64 -31 0
+ 4251 sprites/pcx/ttrs3w.pcx 82 20760 01 52 57 -26 -23
+ 4252 sprites/pcx/ttrs3w.pcx 146 20760 01 64 57 -26 -35
+ 4253 sprites/pcx/ttrs3w.pcx 210 20760 01 76 57 -26 -47
+ 4254 sprites/pcx/ttrs3w.pcx 274 20760 01 78 55 -24 -50
+ 4255 sprites/pcx/ttrs3w.pcx 338 20760 01 31 64 -31 0
+ 4256 sprites/pcx/ttrs3w.pcx 418 20760 01 95 60 -29 -63
+ 4257 sprites/pcx/ttrs3w.pcx 498 20760 01 90 60 -29 -58
+ 4258 sprites/pcx/ttrs3w.pcx 578 20760 01 89 60 -29 -58
+ 4259 sprites/pcx/ttrs3w.pcx 658 20760 01 55 60 -29 -29
+ 4260 sprites/pcx/ttrs3w.pcx 2 20872 01 31 64 -31 0
+ 4261 sprites/pcx/ttrs3w.pcx 82 20872 01 112 62 -29 -83
+ 4262 sprites/pcx/ttrs3w.pcx 162 20872 01 86 62 -29 -55
+ 4263 sprites/pcx/ttrs3w.pcx 242 20872 01 85 63 -29 -55
+ 4264 sprites/pcx/ttrs3w.pcx 322 20872 01 66 52 -29 -42
+ 4265 sprites/pcx/ttrs3w.pcx 386 20872 01 31 64 -31 0
+ 4266 sprites/pcx/ttrs3w.pcx 466 20872 01 104 30 2 -59
+ 4267 sprites/pcx/ttrs3w.pcx 514 20872 01 121 30 2 -76
+ 4268 sprites/pcx/ttrs3w.pcx 562 20872 01 137 30 2 -92
+ 4269 sprites/pcx/ttrs3w.pcx 610 20872 01 94 30 1 -68
+ 4270 sprites/pcx/ttrs3w.pcx 658 20872 01 31 64 -31 0
+ 4271 sprites/pcx/ttrs3w.pcx 2 21032 01 104 64 -30 -75
+ 4272 sprites/pcx/ttrs3w.pcx 82 21032 01 121 64 -30 -92
+ 4273 sprites/pcx/ttrs3w.pcx 162 21032 01 137 64 -30 -108
+ 4274 sprites/pcx/ttrs3w.pcx 242 21032 01 113 63 -30 -84
+ 4275 sprites/pcx/ttrs3w.pcx 322 21032 01 31 64 -31 0
+ 4276 sprites/pcx/ttrs3w.pcx 402 21032 01 105 62 -29 -72
+ 4277 sprites/pcx/ttrs3w.pcx 482 21032 01 147 59 -29 -114
+ 4278 sprites/pcx/ttrs3w.pcx 546 21032 01 180 60 -29 -146
+ 4279 sprites/pcx/ttrs3w.pcx 626 21032 01 147 40 -9 -118
+ 4280 sprites/pcx/ttrs3w.pcx 674 21032 01 31 64 -31 0
+ 4281 sprites/pcx/ttrs3w.pcx 2 21224 01 120 64 -31 -89
+ 4282 sprites/pcx/ttrs3w.pcx 82 21224 01 162 64 -31 -131
+ 4283 sprites/pcx/ttrs3w.pcx 162 21224 01 194 64 -31 -163
+ 4284 sprites/pcx/ttrs3w.pcx 242 21224 01 156 56 -25 -128
+ 4285 sprites/pcx/ttrs3w.pcx 306 21224 01 31 64 -31 0
+ 4286 sprites/pcx/ttrs3w.pcx 386 21224 01 67 60 -29 -37
+ 4287 sprites/pcx/ttrs3w.pcx 466 21224 01 31 64 -31 0
+ 4288 sprites/pcx/ttrs3w.pcx 546 21224 01 66 58 -29 -36
+ 4289 sprites/pcx/ttrs3w.pcx 610 21224 01 31 64 -31 0
+ 4290 sprites/pcx/ttrs3w.pcx 690 21224 01 43 49 -10 -8
+ 4291 sprites/pcx/ttrs3w.pcx 2 21432 01 31 64 -31 0
+ 4292 sprites/pcx/ttrs3w.pcx 82 21432 01 44 62 -30 -13
+ 4293 sprites/pcx/ttrs3w.pcx 162 21432 01 31 64 -31 0
+ 4294 sprites/pcx/ttrs3w.pcx 242 21432 01 75 40 -9 -46
+ 4295 sprites/pcx/ttrs3w.pcx 290 21432 01 31 64 -31 0
+ 4296 sprites/pcx/ttrs3w.pcx 370 21432 01 69 57 -25 -41
+ 4297 sprites/pcx/ttrs3w.pcx 434 21432 01 31 64 -31 0
+ 4298 sprites/pcx/ttrs3w.pcx 514 21432 01 49 55 -29 -22
+ 4299 sprites/pcx/ttrs3w.pcx 578 21432 01 31 64 -31 0
+ 4300 sprites/pcx/ttrs3w.pcx 658 21432 01 61 49 -24 -36
+ 4301 sprites/pcx/ttrs3w.pcx 722 21432 01 31 64 -31 0
+ 4302 sprites/pcx/ttrs3w.pcx 2 21528 01 84 55 -29 -53
+ 4303 sprites/pcx/ttrs3w.pcx 66 21528 01 31 64 -31 0
+ 4304 sprites/pcx/ttrs3w.pcx 146 21528 01 78 55 -24 -50
+ 4305 sprites/pcx/ttrs3w.pcx 210 21528 01 31 64 -31 0
+ 4306 sprites/pcx/ttrs3w.pcx 290 21528 01 55 60 -29 -29
+ 4307 sprites/pcx/ttrs3w.pcx 370 21528 01 31 64 -31 0
+ 4308 sprites/pcx/ttrs3w.pcx 450 21528 01 66 52 -29 -42
+ 4309 sprites/pcx/ttrs3w.pcx 514 21528 01 31 64 -31 0
+ 4310 sprites/pcx/ttrs3w.pcx 594 21528 01 94 30 1 -68
+ 4311 sprites/pcx/ttrs3w.pcx 642 21528 01 31 64 -31 0
+ 4312 sprites/pcx/ttrs3w.pcx 722 21528 01 113 63 -30 -84
+ 4313 sprites/pcx/ttrs3w.pcx 2 21656 01 31 64 -31 0
+ 4314 sprites/pcx/ttrs3w.pcx 82 21656 01 147 40 -9 -118
+ 4315 sprites/pcx/ttrs3w.pcx 130 21656 01 31 64 -31 0
+ 4316 sprites/pcx/ttrs3w.pcx 210 21656 01 156 56 -25 -128
+ 4317 sprites/pcx/ttrs3w.pcx 274 21656 01 31 64 -31 0
+ 4318 sprites/pcx/ttrs3w.pcx 354 21656 01 31 64 -31 0
+ 4319 sprites/pcx/ttrs3w.pcx 434 21656 01 31 64 -31 0
+ 4320 sprites/pcx/ttrs3w.pcx 514 21656 01 31 64 -31 0
+ 4321 sprites/pcx/ttrs3w.pcx 594 21656 01 31 64 -31 0
+ 4322 * 22	 02 09 D1 81 01 00 FF 03 00 80 00 1D 01 80 1E 3B 02 80 3C 59 03 80
+ 4323 * 27	 02 09 D0 81 7F 01 00 FF 04 00 80 01 01 01 80 02 02 02 80 03 03 03 80 04 04 D1 00
+ 4324 * 6	 07 83 01 \7! 00 01
+ 4325 * 7	 00 09 01 01 00 08 3A
+ 4326 * 6	 07 83 01 \7= 00 01
+ 4327 * 7	 00 09 01 01 00 08 59
+ 4328 * 17	 02 09 00 00 00 00 00 80 01 80 00 80 00 00 10 10 46
+ 4329 * 17	 02 09 1A 00 04 00 00 80 05 80 00 80 00 00 10 10 2D
+ 4330 * 17	 02 09 1B 00 5B 00 00 80 05 80 00 80 00 00 10 10 2D
+ 4331 * 14	 02 09 01 81 41 00 FF 01 1B 00 01 01 1A 00
+ 4332 * 17	 02 09 02 00 08 00 00 80 09 00 00 80 00 00 10 10 4B
+ 4333 * 17	 02 09 3A 00 0C 00 00 80 0D 80 00 80 00 00 10 10 32
+ 4334 * 17	 02 09 3B 00 5C 00 00 80 0D 80 00 80 00 00 10 10 32
+ 4335 * 17	 02 09 3C 00 5E 00 00 80 0D 80 00 80 00 00 10 10 32
+ 4336 * 14	 02 09 3F 81 41 00 FF 01 3B 00 01 01 3A 00
+ 4337 * 14	 02 09 03 81 03 00 FF 01 3C 00 01 01 3F 00
+ 4338 * 23	 02 09 4A 81 7E D0 00 FF 03 01 00 01 01 02 00 02 02 03 00 03 03 00 00
+ 4339 * 17	 02 09 00 00 3B 00 00 80 3C 80 00 80 00 00 10 10 46
+ 4340 * 17	 02 09 01 00 3F 00 00 80 40 80 00 80 00 00 10 10 2D
+ 4341 * 17	 02 09 02 00 43 00 00 80 44 00 00 80 00 00 10 10 4B
+ 4342 * 17	 02 09 03 00 47 00 00 80 48 80 00 80 00 00 10 10 32
+ 4343 * 23	 02 09 4B 81 7E D0 00 FF 03 01 00 01 01 02 00 02 02 03 00 03 03 00 00
+ 4344 * 14	 02 09 04 81 41 00 FF 01 4B 00 04 04 4A 00
+ 4345 * 7	 03 09 01 00 00 04 00
+ 4346 * 6	 07 83 01 \7! 00 01
+ 4347 * 7	 00 09 01 01 01 08 3B
+ 4348 * 6	 07 83 01 \7= 00 01
+ 4349 * 7	 00 09 01 01 01 08 5A
+ 4350 * 17	 02 09 00 00 02 00 00 80 03 80 00 80 00 00 10 10 46
+ 4351 * 17	 02 09 01 00 06 00 00 80 07 80 00 80 00 00 10 10 2D
+ 4352 * 17	 02 09 02 00 0A 00 00 80 0B 00 00 80 00 00 10 10 4B
+ 4353 * 17	 02 09 3A 00 0E 00 00 80 0F 80 00 80 00 00 10 10 3D
+ 4354 * 17	 02 09 3B 00 5D 00 00 80 0F 80 00 80 00 00 10 10 3D
+ 4355 * 17	 02 09 3C 00 5F 00 00 80 0F 80 00 80 00 00 10 10 3D
+ 4356 * 14	 02 09 3F 81 41 00 FF 01 3B 00 01 01 3A 00
+ 4357 * 14	 02 09 03 81 03 00 FF 01 3C 00 01 01 3F 00
+ 4358 * 23	 02 09 4A 81 7E D0 00 FF 03 01 00 01 01 02 00 02 02 03 00 03 03 00 00
+ 4359 * 17	 02 09 00 00 3D 00 00 80 3E 80 00 80 00 00 10 10 46
+ 4360 * 17	 02 09 01 00 41 00 00 80 42 80 00 80 00 00 10 10 2D
+ 4361 * 17	 02 09 02 00 45 00 00 80 46 00 00 80 00 00 10 10 4B
+ 4362 * 17	 02 09 03 00 49 00 00 80 4A 80 00 80 00 00 10 10 3D
+ 4363 * 23	 02 09 4B 81 7E D0 00 FF 03 01 00 01 01 02 00 02 02 03 00 03 03 00 00
+ 4364 * 14	 02 09 04 81 41 00 FF 01 4B 00 04 04 4A 00
+ 4365 * 7	 03 09 01 01 00 04 00
+ 4366 * 22	 02 09 E0 81 44 00 FF 03 FF FF 03 03 FF FF 07 07 FF FF 0B 0B FE FF
+ 4367 * 27	 02 09 E2 81 7E D0 00 FF 04 00 80 00 00 04 80 01 01 08 80 02 02 0C 80 03 03 FE FF
+ 4368 * 14	 02 09 E1 81 40 00 FF 01 E2 00 00 00 FE FF
+ 4369 * 27	 02 09 E2 81 7E D0 00 FF 04 FF FF 00 00 04 80 01 01 08 80 02 02 0C 80 03 03 FE FF
+ 4370 * 27	 02 09 E3 81 7E D0 00 FF 04 00 80 00 00 FF FF 01 01 08 80 02 02 0C 80 03 03 FE FF
+ 4371 * 27	 02 09 E4 81 7E D0 00 FF 04 00 80 00 00 04 80 01 01 FF FF 02 02 0C 80 03 03 FE FF
+ 4372 * 27	 02 09 E5 81 7E D0 00 FF 04 00 80 00 00 04 80 01 01 08 80 02 02 FF FF 03 03 FE FF
+ 4373 * 26	 02 09 E6 81 44 00 FF 04 E2 00 03 03 E3 00 07 07 E4 00 0B 0B E5 00 0F 0F FE FF
+ 4374 * 18	 02 09 E8 81 18 00 FF 02 E1 00 00 00 E6 00 02 02 FE FF
+ 4375 * 6	 07 83 01 \7! 00 01
+ 4376 * 7	 00 09 01 01 02 08 3A
+ 4377 * 6	 07 83 01 \7= 00 01
+ 4378 * 7	 00 09 01 01 02 08 59
+ 4379 * 14	 00 09 04 01 02 0E 01 0F 0F 00 10 0B 11 05
+ 4380 * 17	 02 09 00 00 11 00 00 80 13 80 00 80 00 00 10 10 39
+ 4381 * 17	 02 09 01 00 11 00 00 80 14 80 00 80 00 00 10 10 43
+ 4382 * 17	 02 09 02 00 11 00 00 80 15 80 00 80 00 00 10 10 4D
+ 4383 * 17	 02 09 0A 00 12 00 00 80 16 80 00 80 00 00 10 10 54
+ 4384 * 17	 02 09 0B 00 4B 00 00 80 4C 80 00 80 00 00 10 10 54
+ 4385 * 14	 02 09 03 81 41 00 FF 01 0B 00 04 04 0A 00
+ 4386 * 17	 02 09 10 00 10 00 00 80 1E 80 00 80 00 00 10 10 5F
+ 4387 * 17	 02 09 11 00 10 00 00 80 1F 80 00 80 00 00 10 10 5A
+ 4388 * 17	 02 09 12 00 10 00 00 80 20 80 00 80 00 00 10 10 5A
+ 4389 * 17	 02 09 0A 00 1D 00 00 80 21 80 00 80 00 00 10 10 37
+ 4390 * 17	 02 09 0B 00 4F 00 00 80 50 80 00 80 00 00 10 10 37
+ 4391 * 14	 02 09 13 81 41 00 FF 01 0B 00 04 04 0A 00
+ 4392 * 17	 02 09 20 00 10 00 00 80 28 00 00 80 00 00 10 10 68
+ 4393 * 17	 02 09 21 00 10 00 00 80 29 00 00 80 00 00 10 10 79
+ 4394 * 17	 02 09 22 00 10 00 00 80 2A 00 00 80 00 00 10 10 89
+ 4395 * 17	 02 09 0A 00 27 00 00 80 2B 00 00 80 00 00 10 10 5E
+ 4396 * 17	 02 09 0B 00 53 00 00 80 54 00 00 80 00 00 10 10 5E
+ 4397 * 14	 02 09 23 81 41 00 FF 01 0B 00 04 04 0A 00
+ 4398 * 17	 02 09 30 00 10 00 00 80 32 00 00 80 00 00 10 10 69
+ 4399 * 17	 02 09 31 00 10 00 00 80 33 00 00 80 00 00 10 10 93
+ 4400 * 17	 02 09 32 00 10 00 00 80 34 00 00 80 00 00 10 10 B4
+ 4401 * 17	 02 09 0A 00 31 00 00 80 35 00 00 80 00 00 10 10 93
+ 4402 * 17	 02 09 0B 00 57 00 00 80 58 00 00 80 00 00 10 10 93
+ 4403 * 14	 02 09 33 81 41 00 FF 01 0B 00 04 04 0A 00
+ 4404 * 70	 02 09 04 81 44 00 FF 0F 00 00 00 00 01 00 01 01 02 00 02 02 03 00 03 03 10 00 04 04 11 00 05 05
+	 12 00 06 06 13 00 07 07 20 00 08 08 21 00 09 09 22 00 0A 0A 23 00 0B 0B 30 00 0C 0C 31 00 0D 0D
+	 32 00 0E 0E 33 00
+ 4405 * 18	 02 09 10 81 0C 00 FF 02 E8 00 25 25 E0 00 26 26 04 00
+ 4406 * 7	 03 09 01 02 00 10 00
+ 4407 * 6	 07 83 01 \7! 00 01
+ 4408 * 7	 00 09 01 01 03 08 3B
+ 4409 * 6	 07 83 01 \7= 00 01
+ 4410 * 7	 00 09 01 01 03 08 5A
+ 4411 * 14	 00 09 04 01 03 0E 01 0F 0F 00 10 0B 11 05
+ 4412 * 17	 02 09 00 00 17 00 00 80 19 80 00 80 00 00 10 10 34
+ 4413 * 17	 02 09 01 00 17 00 00 80 1A 80 00 80 00 00 10 10 41
+ 4414 * 17	 02 09 02 00 17 00 00 80 1B 80 00 80 00 00 10 10 4C
+ 4415 * 17	 02 09 0A 00 18 00 00 80 1C 80 00 80 00 00 10 10 4E
+ 4416 * 17	 02 09 0B 00 4D 00 00 80 4E 80 00 80 00 00 10 10 4E
+ 4417 * 14	 02 09 03 81 41 00 FF 01 0B 00 04 04 0A 00
+ 4418 * 17	 02 09 10 00 10 00 00 80 23 80 00 80 00 00 10 10 70
+ 4419 * 17	 02 09 11 00 10 00 00 80 24 80 00 80 00 00 10 10 56
+ 4420 * 17	 02 09 12 00 10 00 00 80 25 80 00 80 00 00 10 10 56
+ 4421 * 17	 02 09 0A 00 22 00 00 80 26 80 00 80 00 00 10 10 42
+ 4422 * 17	 02 09 0B 00 51 00 00 80 52 80 00 80 00 00 10 10 42
+ 4423 * 14	 02 09 13 81 41 00 FF 01 0B 00 04 04 0A 00
+ 4424 * 17	 02 09 20 00 10 00 00 80 2D 00 00 80 00 00 10 10 68
+ 4425 * 17	 02 09 21 00 10 00 00 80 2E 00 00 80 00 00 10 10 79
+ 4426 * 17	 02 09 22 00 10 00 00 80 2F 00 00 80 00 00 10 10 89
+ 4427 * 17	 02 09 0A 00 2C 00 00 80 30 00 00 80 00 00 10 10 71
+ 4428 * 17	 02 09 0B 00 55 00 00 80 56 00 00 80 00 00 10 10 71
+ 4429 * 14	 02 09 23 81 41 00 FF 01 0B 00 04 04 0A 00
+ 4430 * 17	 02 09 30 00 10 00 00 80 37 00 00 80 00 00 10 10 78
+ 4431 * 17	 02 09 31 00 10 00 00 80 38 00 00 80 00 00 10 10 A2
+ 4432 * 17	 02 09 32 00 10 00 00 80 39 00 00 80 00 00 10 10 C2
+ 4433 * 17	 02 09 0A 00 36 00 00 80 3A 00 00 80 00 00 10 10 9C
+ 4434 * 17	 02 09 0B 00 59 00 00 80 5A 00 00 80 00 00 10 10 9C
+ 4435 * 14	 02 09 33 81 41 00 FF 01 0B 00 04 04 0A 00
+ 4436 * 70	 02 09 04 81 44 00 FF 0F 00 00 00 00 01 00 01 01 02 00 02 02 03 00 03 03 10 00 04 04 11 00 05 05
+	 12 00 06 06 13 00 07 07 20 00 08 08 21 00 09 09 22 00 0A 0A 23 00 0B 0B 30 00 0C 0C 31 00 0D 0D
+	 32 00 0E 0E 33 00
+ 4437 * 18	 02 09 10 81 0C 00 FF 02 E8 00 25 25 E0 00 26 26 04 00
+ 4438 * 7	 03 09 01 03 00 10 00
+
+ 4439 * 6    07 83 01 \7! 00 01   // skip next, if not temperate
+ 4440 * 9    00 0A 02 01 00 // Change 2 properties, one industry, industry ID 00
+                08 0C
+                09 0C
+ 4441 * 6    07 83 01 \7= 00 01   // skip next, if temperate
+ 4442 * 9    00 0A 02 01 00 // Change 2 properties, one industry, industry ID 00
+                08 10
+                09 10
+ 4443 * 37   00 0A 02 01 00 // Change 2 properties, one industry, industry ID 00
+                0A 02       // Two industry layouts
+                    \d24 // size: 24 bytes
+                    00 00 FE 00 00 
+					01 00 FE 01 00
+                    00 80       // end of layout
+                    00 00 FE 02 00 
+					01 00 FE 03 00
+                    00 80       // end of layout
+                21 08 //callback flags: 08 = CB 28
+ 4444 * 14	 02 0A 00 81 88 00 FF 01 00 84 00 02 01 84 //varaction 02 industries, set-id 00, 1 byte var, var 88 town zone, no shift, no mask, 1 range, set ID 00 84 for range 00-02, default set ID 01 84
+ 4445 * 14	 02 0A 01 81 88 00 FF 01 00 84 03 04 01 84 //varaction 02 industries, set-id 01, 1 byte var, var 88 town zone, no shift, no mask, 1 range, set ID 00 84 for range 03-04, default set ID 01 84
+ 4446 * 14	 02 0A 02 81 86 00 FF 01 00 00 00 00 01 00 //varaction 02 industries, set-id 02, 1 byte var, var 86 layout number, no shift, no mask, 1 range, set ID 00 00 for range 00-00, default set ID 01 00
+ 4447 * 7	 03 0A 01 00 00 02 00 //action 03 industries, id 00, def-cid 02 00
+ 
+
+ //We've had the industry banks, skip the house-banks
+-1 * 0 07 //Action 7
+	9A 01 //all bits set, 1 byte
+	\71 00 //bit 00 set
+	FE //label
+ 
+//start house-banks
+-1 * 0 10 FF //label
+
+//HOUSE-BANKS GO HERE
+
+#define PROBABILITY 01 01
+
+
+    3 * 65	 00 07
+	\b14     // change 13 properties
+	02 C2               // change two IDs, starting at C2
+
+    08 57       58      // substitute type
+    09 04       00      // 2x1 building
+	0B 10       00      // population
+	0C 10       10      // mail gen
+	0D 01       01      // pax accept
+	0E 03       03      // mail accept
+	0F 03       03      // goods accept
+	10 \w200    \w200   // LA impact. high
+	11 \b10     \b10    // removal
+	12 20 DC    20 DC   // Building name
+    13 \wxF81F  \wx0    // availability mask
+	18 PROBABILITY      // probability. low
+	1F \b20     \b20    // building lifetime
+	0A 0A f0    0A f0   // availability years 1930 till ever
+
+//    \b02        // two prop.
+//    02 A4       // two IDs, starting A4
+//    08 A4       // subst. type
+//    09 08       // 1x2 building
+
+    4 * 4	 01 07 \b04 01
+ 4226 sprites/pcx/ttrs3w.pcx 514 20488 01 31 64 -31 0
+ 4227 sprites/pcx/ttrs3w.pcx 594 20488 01 67 60 -29 -37
+ 4228 sprites/pcx/ttrs3w.pcx 674 20488 01 31 64 -31 0
+ 4229 sprites/pcx/ttrs3w.pcx 2 20568 01 66 58 -29 -36
+
+// The completed house:
+    7 * 17	 02 07 00 00 
+	00 00 00 80	// Use own ground sprite
+	01 00 00 80	// setID 00
+	00 00 10 10 \b200	// no offsets and extends and so on.
+	
+    8 * 17	 02 07 01 00 
+	02 00 00 80	// Use own ground sprite
+	03 00 00 80	// setID 01
+	00 00 10 10 \b200	// no offsets and extends and so on.
+
+    9 * 7	 03 07 01 // one house ID
+    C2 00        // ID
+    00 00        // set0
+   10 * 7	 03 07 01 // one house ID
+    C3 00        // ID
+    01 00        // set1
+
+//end house-banks
+-1 * 0 10 FE //label

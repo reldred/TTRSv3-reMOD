@@ -1,0 +1,166 @@
+// Parameter description and translation of the related strings
+
+-1 * 0 14
+    "C" "INFO"
+        "B" "VRSN" \w4 \d{{REPO_REVISION}}
+        "B" "MINV" \w4 \d24
+        "B" "PALS" \w1 "W"
+        "B" "NPAR" \w1 \b4
+        "C" "PARA"
+            "C" \d0
+                "B" "TYPE" \w1 01   // boolean
+                "B" "DFLT" \w4 \d1
+                "T" "NAME" 7F C3 9E "Keep original houses" 00               // default English (UK)
+                "T" "NAME" 02 C3 9E "Originale Häuser beibehalten" 00       // German
+                "T" "NAME" 04 C3 9E "Mantener casas originales" 00          // Spanish
+                "T" "NAME" 1F C3 9E "Behoud originele gebouwen" 00          // Dutch
+                "T" "NAME" 2E C3 9E "Behåll standardhusen" 00               // Swedish
+                "T" "NAME" 2F C3 9E "Behold originale hus" 00               // Norwegian Bokmal
+                "T" "NAME" 30 C3 9E "Zachowaj oryginalne domy" 00           // Polish
+
+                "T" "DESC" 7F C3 9E "Enable this switch to use TTRS buildings with the existing houses." 00
+                "T" "DESC" 02 C3 9E "Wenn dieser Parameter gesetzt wird, so werden die TTRS-Häuser den existierenden Häusern hinzugefügt." 00
+                "T" "DESC" 04 C3 9E "Activar esta opción si quieres usar los edificios de TTRS junto con los edificios existentes." 00
+                "T" "DESC" 1F C3 9E "Schakel dit in om de TTRS gebouwen naast de bestaande gebouwen toe te voegen." 00
+                "T" "DESC" 2E C3 9E "Aktivera den här växeln för att använda TTRS-byggnader tillsammans med standardhusen." 00
+                "T" "DESC" 2F C3 9E "Skru på denne knappen for å bruke TTRS-bygninger med eksisterende bygninger" 00
+                "T" "DESC" 30 C3 9E "Uaktywnij to by używać budynków TTRS wraz z obecnymi." 00
+            00
+            "C" \d1
+                "B" "TYPE" \w1 00   // integer or enum
+                "B" "LIMI" \w8 \d0 \d5
+                "B" "DFLT" \w4 \d0
+                "T" "NAME" 7F C3 9E "Time era used" 00
+                "T" "NAME" 02 C3 9E "Epoche" 00
+                "T" "NAME" 04 C3 9E "Era temporal usada" 00
+                "T" "NAME" 1F C3 9E "Tijdperk" 00
+                "T" "NAME" 2E C3 9E "Tidsepok" 00
+                "T" "NAME" 2F C3 9E "Æra som skal brukes" 00
+                "T" "NAME" 30 C3 9E "Użyte ery" 00
+
+                "T" "DESC" 7F C3 9E "This switch sets the era all the buildings are taken from, buildings from other eras are ignored. By default the era changes as time passes." 00
+                "T" "DESC" 02 C3 9E "Dieser Parameter erlaubt es, die Epoche einzustellen aus der die gewählten Häuser stammen. Standardmäßig werden die dem aktuellen Datum entsprechenden Häuser gewählt." 00
+                "T" "DESC" 04 C3 9E "Permite ajustar la era de donde se toman los edificios construidos nuevos. Por defecto siguen la secuencia temporal usual." 00
+                "T" "DESC" 1F C3 9E "Selecteer het tijdperk waarvan nieuw te bouwen gebouwen worden gekozen. Standaard volgen de beschikbare tijdperken elkaar op." 00
+                "T" "DESC" 2E C3 9E "Den här växeln sätter tidsepoken för byggnaderna, byggnader från andra epoker ignoreras. Som standard växlar epoken allteftersom tiden går." 00
+                "T" "DESC" 2F C3 9E "Denne brytern forandrer hvilken æra bygningene skal taes fra, andre bygninger blir ignorert. Standard er at bygningene forandres ettersom tiden går" 00
+                "T" "DESC" 30 C3 9E "Ustawienia te zmieniają czasy w których budynki mają się pojawiać, z pozostałych przedziałów czasowych będą zignorowany. Domyślnie era się zmienia wraz z biegiem czasu." 00
+
+                "C" "VALU"
+                    "T" \d0 7F C3 9E "default sequence" 00
+                    "T" \d0 02 C3 9E "normale Zeitabfolge" 00
+                    "T" \d0 04 C3 9E "secuencia por defecto" 00
+                    "T" \d0 1F C3 9E "standaard tijdperkopvolging" 00
+                    "T" \d0 2E C3 9E "standardsekvensen" 00
+                    "T" \d0 2F C3 9E "Standard sekvens" 00
+                    "T" \d0 30 C3 9E "sekwencja domyślna" 00
+
+                    "T" \d1 7F C3 9E "use 1920 - 1950 era only" 00
+                    "T" \d1 02 C3 9E "nutze nur die Epoche 1920 - 1950" 00
+                    "T" \d1 04 C3 9E "usar solo la era 1920 - 1950" 00
+                    "T" \d1 1F C3 9E "alleen tijdperk 1920 - 1950" 00
+                    "T" \d1 2E C3 9E "bara från 1920 - 1950" 00
+                    "T" \d1 2F C3 9E "Bruk kun tidsepoken mellom 1920 - 1950" 00
+                    "T" \d1 30 C3 9E "użyj tylko ery 1920 - 1950" 00
+
+                    "T" \d2 7F C3 9E "use 1950 - 1980 era only" 00
+                    "T" \d2 02 C3 9E "nutze nur die Epoche 1950 - 1980" 00
+                    "T" \d2 04 C3 9E "usar solo la era 1950 - 1980" 00
+                    "T" \d2 1F C3 9E "alleen tijdperk 1950 - 1980" 00
+                    "T" \d2 2E C3 9E "bara från 1950 - 1980" 00
+                    "T" \d1 2F C3 9E "Bruk kun tidsepoken mellom 1950 - 1980" 00
+                    "T" \d2 30 C3 9E "użyj tylko ery 1950 - 1980" 00
+
+                    "T" \d3 7F C3 9E "use 1980 - 2010 era only" 00
+                    "T" \d3 02 C3 9E "nutze nur die Epoche 1980 - 2010" 00
+                    "T" \d3 04 C3 9E "usar solo la era 1980 - 2010" 00
+                    "T" \d3 1F C3 9E "alleen tijdperk 1980 - 2010" 00
+                    "T" \d3 2E C3 9E "bara från 1980 - 2010" 00
+                    "T" \d1 2F C3 9E "Bruk kun tidsepoken mellom 1980 - 2010" 00
+                    "T" \d3 30 C3 9E "użyj tylko ery 1980 - 2010" 00
+
+                    "T" \d4 7F C3 9E "use 2010 - forever era only" 00
+                    "T" \d4 02 C3 9E "nutze nur die Epoche 2010 und später" 00
+                    "T" \d4 04 C3 9E "usar solo la era 2010 en adelante" 00
+                    "T" \d4 1F C3 9E "alleen tijdperk vanaf 2010" 00
+                    "T" \d4 2E C3 9E "bara från 2010 och framåt" 00
+                    "T" \d4 2F C3 9E "Bruk kun bygninger fra 2010 og utover" 00
+                    "T" \d4 30 C3 9E "użyj tylko ery 2010 - nieskończoność" 00
+
+                    "T" \d5 7F C3 9E "ignore eras and use houses from any at random" 00
+                    "T" \d5 02 C3 9E "nutze Häuser aus allen Epochen zu allen Zeiten" 00
+                    "T" \d5 04 C3 9E "ignorar las eras y usar las casas desde cualquiera aleatoriamente" 00
+                    "T" \d5 1F C3 9E "gebruik willekeurige gebouwen van ieder tijdperk" 00
+                    "T" \d5 2E C3 9E "ignorera epoker och använd alla byggnader slumpmässigt" 00
+                    "T" \d5 2F C3 9E "Ignorer tidsepoker og bruk bygninger fra alle tidsepoker, unansett hvilket år man er i" 00
+                    "T" \d5 30 C3 9E "ignoruj przedziały czasowe i używaj wszystkie budynki losowo" 00
+                00
+            00
+            "C" \d2
+                "B" "TYPE" \w1 00   // int or enum
+                "B" "LIMI" \w8 \d0 \d2
+                "B" "DFLT" \w4 \d2
+                "T" "NAME" 7F C3 9E "Infrastructure" 00
+                "T" "NAME" 02 C3 9E "Infrastruktur" 00
+                "T" "NAME" 04 C3 9E "Uso de infraestructuras" 00
+                "T" "NAME" 1F C3 9E "Infrastructuur" 00
+                "T" "NAME" 2E C3 9E "Infrastruktur" 00
+                "T" "NAME" 2F C3 9E "Infrastruktur" 00
+                "T" "NAME" 30 C3 9E "Infrastruktura" 00
+
+                "T" "DESC" 7F C3 9E "Decide upon whether TTRS infrastructure is used or not." 00
+                "T" "DESC" 02 C3 9E "Legt fest, welche Infrastruktur TTRS bereitstellen soll." 00
+                "T" "DESC" 04 C3 9E "Permite decidir cuando se usan las infraestructuras TTRS." 00
+                "T" "DESC" 1F C3 9E "Bepaalt of de TTRS infrastructuur gebruikt moet worden." 00
+                "T" "DESC" 2E C3 9E "Välj TTRS infrastruktur eller standard." 00
+                "T" "DESC" 2F C3 9E "Hvilken infrastruktur skal brukes" 00
+                "T" "DESC" 30 C3 9E "Ustal kiedy infrastruktura z TTRS ma być użyta lub nie." 00
+
+                "C" "VALU"
+                    "T" \d0 7F C3 9E "Don't use TTRS infrastructure" 00
+                    "T" \d0 02 C3 9E "Nutze keine TTRS - Infrastruktur" 00
+                    "T" \d0 04 C3 9E "No usar la infraestructura TTRS" 00
+                    "T" \d0 1F C3 9E "gebruik geen TTRS infrastructuur" 00
+                    "T" \d0 2E C3 9E "Använd inte TTRS infrastruktur" 00
+                    "T" \d0 2F C3 9E "Ikke bruk TTRS infrastruktur" 00
+                    "T" \d0 30 C3 9E "Nie używaj infrastruktury TTRS" 00
+
+                    "T" \d1 7F C3 9E "Use TTRS roads but default bridges" 00
+                    "T" \d1 02 C3 9E "Nutze TTRS - Straßen, aber die normalen Brücken" 00
+                    "T" \d1 04 C3 9E "Usar las carreteras TTRS pero con puentes originales" 00
+                    "T" \d1 1F C3 9E "gebruik TTRS wegen, maar behoud standaard bruggen" 00
+                    "T" \d1 2E C3 9E "Använd TTRS vägar men standard broar" 00
+                    "T" \d1 2F C3 9E "Bruk TTRS veger, men behold originale broer" 00
+                    "T" \d1 30 C3 9E "Używaj dróg z TTRS, lecz pozostaw mosty domyślne" 00
+
+                    "T" \d2 7F C3 9E "Use TTRS roads and bridges" 00
+                    "T" \d2 02 C3 9E "Nutze TTRS - Straßen und Brücken" 00
+                    "T" \d2 04 C3 9E "Usar las carreteras y puentes TTRS" 00
+                    "T" \d2 1F C3 9E "gebruik TTRS wegen en bruggen" 00
+                    "T" \d2 2E C3 9E "Använd TTRS vägar och broar" 00
+                    "T" \d2 2F C3 9E "Bruk TTRS egne veger og bruer" 00
+                    "T" \d2 30 C3 9E "Uzywaj dróg i mostów z TTRS" 00
+                00
+            00
+            "C" \d3
+                "B" "TYPE" \w1 01   // boolean
+                "B" "DFLT" \w4 \d1
+                "T" "NAME" 7F C3 9E "Don't use TTRS airports" 00
+                "T" "NAME" 02 C3 9E "Nutze keine TTRS - Flughäfen" 00
+                "T" "NAME" 04 C3 9E "No usar los aeropuertos TTRS" 00
+                "T" "NAME" 1F C3 9E "Gebruik geen TTRS luchthavens" 00
+                "T" "NAME" 2E C3 9E "Använd inte TTRS flygplatser" 00
+                "T" "NAME" 2F C3 9E "Ikke bruk TTRS flyplasser" 00
+                "T" "NAME" 30 C3 9E "Nie używaj lotnisk z TTRS" 00
+
+                "T" "DESC" 7F C3 9E "Decide whether the supplied graphics for airports and heliports shall be used (default = no)." 00
+                "T" "DESC" 02 C3 9E "Legt fest, ob die mitgelieferten Grafiken für Flughäfen und Hubschrauberlandeplätze benutzt werden sollen (Standard = nein)." 00
+                "T" "DESC" 04 C3 9E "Decidir si deberían ser usados los gráficos para los aeropuertos y helipuertos suministrados (por defecto = no)." 00
+                "T" "DESC" 1F C3 9E "Bepaalt of the meegeleverde graphics voor luchthavens en helicopterplaatsen moet worden gebruikt (standaard = nee)." 00
+                "T" "DESC" 2E C3 9E "Välj om TTRS-grafik för flygplatser och heliport ska användas." 00
+                "T" "DESC" 2F C3 9E "Skal TTRS flyplasser og heliporter brukes" 00
+                "T" "DESC" 30 C3 9E "Ustal kiedy dodatkowe grafiki lotnisk oraz lądowisk powinny być użyte." 00
+            00
+        00
+    00
+00
